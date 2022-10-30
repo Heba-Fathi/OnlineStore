@@ -43,7 +43,7 @@ namespace OnlineStore.API.Controllers
         }
         // GET: api/products?categoryID=1
 
-        [HttpGet("categoryID")]
+        [HttpGet("GetByCategory")]
         public async Task<IActionResult> GetByCategory([FromQuery] int categoryID)
         {
             //get list 
@@ -74,7 +74,7 @@ namespace OnlineStore.API.Controllers
             return CreatedAtAction("Post",result);
 
         }
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id,[FromBody]ProductViewModel productViewModel)
         {
             //map
@@ -90,7 +90,7 @@ namespace OnlineStore.API.Controllers
             //map to view model
             var result = _mapper.Map<Product, ProductViewModel>(productResponse.Resource);
 
-            return CreatedAtAction("Put", result);
+            return Ok(result);
         }
     }
 }
