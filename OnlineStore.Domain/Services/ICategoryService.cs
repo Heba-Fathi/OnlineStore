@@ -1,13 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using OnlineStore.Domain.Services.Communication;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace OnlineStore.Domain.Services
 {
-    interface ICategoryService
+    public interface ICategoryService
     {
         Task<Category> FindByIdAsync(int id);
-        Task<Category> ListAsync(Category category);
-        Task<Category> UpdateAsync(int id, Category category);
-        Task<Category> AddAsync(Category category);
+        Task<IEnumerable<Category>> ListAsync();
+        Task<CategoryResponse> UpdateAsync(int id, Category category);
+        Task<CategoryResponse> AddAsync(Category category);
 
         Task<Category> Remove(int id);
     }

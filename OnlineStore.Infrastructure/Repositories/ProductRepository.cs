@@ -3,6 +3,7 @@ using OnlineStore.Domain;
 using OnlineStore.Domain.Repositories;
 using OnlineStore.Infrastructure.Contexts;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace OnlineStore.Infrastructure.Repositories
@@ -22,14 +23,17 @@ namespace OnlineStore.Infrastructure.Repositories
 
         public async Task<Product> FindByIdAsync(int id)
         {
-            return await _context.Products.FirstOrDefaultAsync( p=>p.Id==id);
+            return await _context.Products.Include(p=>p.Category).FirstOrDefaultAsync( p=>p.Id==id);
         }
 
         public async Task<IEnumerable<Product>> ListAsync()
         {
             return await _context.Products.ToListAsync();
         }
-
+        public async Task<IEnumerable<Product>> FindByCategoryIdAsync(int categoryId)
+        {
+            return await _context.Products.Where(p=>p.CategoryId==categoryId).ToListAsync();
+        }
         public void Remove(Product product)
         {
             _context.Products.Remove(product);

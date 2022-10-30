@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineStore.Domain;
+using OnlineStore.Domain.Repositories;
 using OnlineStore.Infrastructure.Contexts;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OnlineStore.Infrastructure.Repositories
 {
-    public class CategoryRepository
+    public class CategoryRepository:ICategoryRepository
     {
         private readonly AppDbContext _context;
         public CategoryRepository(AppDbContext context)
