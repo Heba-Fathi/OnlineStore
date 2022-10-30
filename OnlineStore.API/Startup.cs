@@ -39,6 +39,7 @@ namespace OnlineStore.API
 
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
+            services.AddCors(opt => opt.AddDefaultPolicy(builder => builder.AllowAnyOrigin()));
             services.AddSwaggerGen();
         }
 
@@ -55,6 +56,7 @@ namespace OnlineStore.API
 
             app.UseRouting();
 
+            app.UseCors();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
