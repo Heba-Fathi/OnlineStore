@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "3027b62a-609a-4d35-a3e6-7dd90ef66359",
+		"name": "OnlineStoreCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:46856/api/Categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "46856",
+					"path": [
+						"api",
+						"Categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:46856/api/Products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "46856",
+					"path": [
+						"api",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Vitamin A\",\r\n  \"price\": 100,\r\n  \"quantity\": 6,\r\n \r\n  \"categoryId\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:46856/api/Products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "46856",
+					"path": [
+						"api",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Vitamin A\",\r\n  \"price\": 400,\r\n  \"quantity\": 5,\r\n  \"categoryId\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:46856/api/Products/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "46856",
+					"path": [
+						"api",
+						"Products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:46856/api/Products/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "46856",
+					"path": [
+						"api",
+						"Products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products By Category Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:46856/api/Products/GetByCategory?categoryID=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "46856",
+					"path": [
+						"api",
+						"Products",
+						"GetByCategory"
+					],
+					"query": [
+						{
+							"key": "categoryID",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
