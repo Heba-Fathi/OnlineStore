@@ -54,12 +54,20 @@ namespace OnlineStore.Application.Services
 
         }
 
-        public async Task<Product> Remove(int id)
+        public async Task<ProductResponse> Remove(int id)
         {
             Product product = await _productRepository.FindByIdAsync(id);
-            _productRepository.Remove(product);
-            await _unitOfWork.CompleteAsync();
-            return product;
+            try
+            {
+                _productRepository.Remove(product);
+                await _unitOfWork.CompleteAsync();
+                return new ProductResponse(product);
+            }
+            catch (Exception ex)
+            {
+
+                return new ProductResponse($"An error occurred when deleting Product: {ex.Message}");
+            }
         }
 
         public async Task<ProductResponse> UpdateAsync(int id, Product product)

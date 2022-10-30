@@ -12,6 +12,6 @@ namespace OnlineStore.Domain.Services
         Task<ProductResponse> UpdateAsync(int id, Product product);
         Task<ProductResponse> AddAsync(Product product);
       
-        Task<Product> Remove(int id);
+        Task<ProductResponse> Remove(int id);
     }
 }

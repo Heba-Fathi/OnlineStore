@@ -92,5 +92,21 @@ namespace OnlineStore.API.Controllers
 
             return Ok(result);
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var productResponse = await _productService.Remove(id);
+            if (!productResponse.Success)
+            {
+                // failure case
+                return BadRequest(productResponse.Message);
+
+            }
+            //map to view model
+            var result = _mapper.Map<Product, ProductViewModel>(productResponse.Resource);
+
+            return Ok("Deleted Successfully");
+
+        }
     }
 }
